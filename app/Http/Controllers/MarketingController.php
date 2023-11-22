@@ -12,7 +12,8 @@ class MarketingController extends Controller
      */
     public function index()
     {
-        //
+        $marketings = Marketing::all();
+        return view('admin.marketing.index', compact('marketings'));
     }
 
     /**
@@ -20,7 +21,7 @@ class MarketingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.marketing.create');
     }
 
     /**
@@ -28,7 +29,13 @@ class MarketingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'medio' => 'required',
+            'descripcion',
+        ]);
+
+        $marketing = Marketing::create($request->all());
+        return redirect()->route('admin.marketings.edit', $marketing)->with('info', 'El formulario se registró con éxito');
     }
 
     /**
@@ -44,7 +51,7 @@ class MarketingController extends Controller
      */
     public function edit(Marketing $marketing)
     {
-        //
+        return view("admin.marketing.edit", compact("marketing"));
     }
 
     /**
@@ -52,7 +59,13 @@ class MarketingController extends Controller
      */
     public function update(Request $request, Marketing $marketing)
     {
-        //
+        $request->validate([
+            'medio' => 'required',
+            'descripcion',
+        ]);
+
+        $marketing->update($request->all());
+        return redirect()->route('admin.marketings.edit', $marketing)->with('info', 'El formulario se registró con éxito');
     }
 
     /**
@@ -60,6 +73,8 @@ class MarketingController extends Controller
      */
     public function destroy(Marketing $marketing)
     {
-        //
+        $marketing->delete();
+
+        return redirect()->route('admin.marketings.index', $marketing)->with('info', 'El registro se eliminó con éxito');
     }
 }

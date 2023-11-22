@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('marketings', function (Blueprint $table) {
+        Schema::create('programas', function (Blueprint $table) {
             $table->id();
-
-            $table->string('medio');
-            $table->string('descripcion') -> nullable();
-
-            // Clave foránea a la tabla "cetpro"
-            $table->unsignedBigInteger('alumno_id');
-            $table->foreign('alumno_id')->references('id')->on('alumnos')->onDelete('cascade');
-
+            $table->string('nombre');
+            $table->string('modulo');
+            $table->date('periodo_clases_inicio');
+            $table->date('periodo_clases_final');
+            $table->string('nivel_formativo');
             $table->timestamps();
         });
     }
@@ -30,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('marketings');
+        Schema::dropIfExists('programas');
     }
 };
-

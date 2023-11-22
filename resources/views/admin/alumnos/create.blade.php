@@ -197,10 +197,18 @@
                                 <input type="date" class="form-control" id="anio_academi" name="anio_academi" required
                                     placeholder="Año academico">
                             </div>
-                            <div class="form-group col-md-4">
+                            {{-- <div class="form-group col-md-4">
                                 <label for="prog_estudio">Programa de estudio</label>
                                 <input type="text" class="form-control" id="prog_estudio" name="prog_estudio" required
                                     placeholder="Programa de estudio">
+                            </div> --}}
+                            <div class="form-group col-md-4">
+                                <label for="programa_estudio_id">Programa de estudio</label>
+                                <select id="programa_estudio_id" name="programa_estudio_id" required class="form-control">
+                                    @foreach ($programas as $programa)
+                                        <option value="{{$programa->id}}" class="text-muted">{{ $programa->nombre }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -213,6 +221,24 @@
                             <div class="form-group col-md-8">
                                 <label for="expects">Expectativas</label>
                                 <textarea class="form-control" id="expects" name="expects" rows="3" placeholder="Expectativas"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="form-row">
+                            {{-- <div class="form-group col-md-4">
+                                <label for="marketing_id">Medio</label>
+                                <input type="text" class="form-control" id="marketing_id" name="marketing_id" required
+                                    placeholder="Medio por el cual se enteró">
+                            </div> --}}
+                            <div class="form-group col-md-4">
+                                <label for="marketing_id">Medio</label>
+                                <select id="marketing_id" name="marketing_id" required class="form-control">
+                                    @foreach ($marketings as $marketing)
+                                        <option value="{{$marketing->id}}" class="text-muted">{{ $marketing->medio }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CetproController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\MarketingController;
+use App\Http\Controllers\ProgramaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
 // Route::resource('alumnos', AlumnoController::class)->except('show')->names('admin.alumnos');
 Route::group(['middleware' => ['auth']], function () {
     // RUTA CETPRO
-    Route::get('alumnos/pdf', [AlumnoController::class, 'pdf'])->name('admin.alumnos.pdf');
+    // Route::get('/alumnos/pdf/{alumnos}', [AlumnoController::class, 'pdf'])->name('admin.alumnos.pdf');
     // Route::resource('alumnos', AlumnoController::class)->except('show')->names('admin.alumnos');
     Route::resource('alumnos', AlumnoController::class)->names('admin.alumnos');
 
@@ -69,6 +72,27 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth']], function () {
     // RUTA CETPRO
     Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
+});
+
+//RUTA CURSOS
+// Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA CETPRO
+    Route::resource('cursos', CursoController::class)->except('show')->names('admin.cursos');
+});
+
+//RUTA CETPRO
+// Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA CETPRO
+    Route::resource('marketings', MarketingController::class)->except('show')->names('admin.marketings');
+});
+
+//RUTA CETPRO
+// Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA CETPRO
+    Route::resource('programas', ProgramaController::class)->except('show')->names('admin.programas');
 });
 
 

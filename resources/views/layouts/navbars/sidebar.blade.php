@@ -11,6 +11,24 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'cursos') class="active " @endif>
+                <a href="{{ route('admin.cursos.index') }}">
+                    <i class="tim-icons icon-bank"></i>
+                    <p>{{ __('Cursos') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug == 'marketings') class="active " @endif>
+                <a href="{{ route('admin.marketings.index') }}">
+                    <i class="tim-icons icon-bank"></i>
+                    <p>{{ __('Marketing') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug == 'programas') class="active " @endif>
+                <a href="{{ route('admin.programas.index') }}">
+                    <i class="tim-icons icon-bank"></i>
+                    <p>{{ __('Programas') }}</p>
+                </a>
+            </li>
 
             <li @if ($pageSlug == 'cetpros') class="active " @endif>
                 <a href="{{ route('admin.cetpros.index') }}">

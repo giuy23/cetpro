@@ -203,10 +203,26 @@
                                 <input type="date" class="form-control" id="anio_academi" name="anio_academi"
                                     required value="{{ $alumno->anio_academi }}" placeholder="Año academico">
                             </div>
-                            <div class="form-group col-md-4">
+                            {{-- <div class="form-group col-md-4">
                                 <label for="prog_estudio">Programa de estudio</label>
                                 <input type="text" class="form-control" id="prog_estudio" name="prog_estudio"
                                     required value="{{ $alumno->prog_estudio }}" placeholder="Programa de estudio">
+                            </div> --}}
+                            <div class="form-group col-md-4">
+                                <label for="programa_estudio_id">Programa de estudio</label>
+                                <select id="programa_estudio_id" name="programa_estudio_id" required class="form-control">
+                                    @foreach ($programas as $programa)
+                                        @if ($programa->id == $alumno->cetpro_id)
+                                            {
+                                            <option value="{{ $programa->id }}" selected class="text-muted">
+                                                {{ $programa->nombre }}</option>
+                                            }
+                                        @else
+                                            <option value="{{ $programa->id }}" class="text-muted">
+                                                {{ $programa->nombre }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -220,6 +236,32 @@
                                 <label for="expects">Expectativas</label>
                                 <textarea class="form-control" id="expects" name="expects" rows="3"
                                     placeholder="Expectativas">{{ $alumno->expects }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="form-row">
+                            {{-- <div class="form-group col-md-4">
+                                <label for="marketing_id">Medio</label>
+                                <input type="text" class="form-control" id="marketing_id" name="marketing_id" required
+                                    placeholder="Medio por el cual se enteró">
+                            </div> --}}
+                            <div class="form-group col-md-4">
+                                <label for="marketing_id">Programa de estudio</label>
+                                <select id="marketing_id" name="marketing_id" required class="form-control">
+                                    @foreach ($marketings as $marketing)
+                                        @if ($marketing->id == $alumno->cetpro_id)
+                                            {
+                                            <option value="{{ $marketing->id }}" selected class="text-muted">
+                                                {{ $marketing->medio }}</option>
+                                            }
+                                        @else
+                                            <option value="{{ $marketing->id }}" class="text-muted">
+                                                {{ $marketing->medio }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

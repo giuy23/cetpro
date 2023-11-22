@@ -44,11 +44,18 @@ return new class extends Migration
             $table->text('expects') -> nullable();
             $table->date('anio_academi');
             $table->string('code_inscrip');
-            $table->string('prog_estudio');
+
+            // Clave foránea a la tabla "programas"
+            $table->unsignedBigInteger('programa_estudio_id');
+            $table->foreign('programa_estudio_id')->references('id')->on('programas')->onDelete('cascade');
 
             // Clave foránea a la tabla "cetpro"
             $table->unsignedBigInteger('cetpro_id');
             $table->foreign('cetpro_id')->references('id')->on('cetpros')->onDelete('cascade');
+
+            // Clave foránea a la tabla "marketing"
+            $table->unsignedBigInteger('marketing_id');
+            $table->foreign('marketing_id')->references('id')->on('marketings')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -42,7 +42,8 @@
                                                     href="{{ route('admin.alumnos.edit', $alumno) }}">Editar</a>
                                         </td>
                                         <td width="10px">
-                                            <a class="btn btn-primary btn-sm"
+                                            <a class="btn btn-primary btn-sm" target="_blank"
+                                                {{-- href="{{ route('admin.alumnos.pdf', $alumno->id) }}">PDF</a> --}}
                                                 href="{{ route('admin.alumnos.show', $alumno) }}">PDF</a>
                                     </td>
                                         <td width="10px">

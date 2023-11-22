@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Cetpro;
+use App\Models\Marketing;
+use App\Models\Programa;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -25,11 +27,14 @@ class AlumnoController extends Controller
     public function create()
     {
         $cetpros = Cetpro::all();
-        return view('admin.alumnos.create', compact('cetpros'));
+        $programas = Programa::all();
+        $marketings = Marketing::all();
+        return view('admin.alumnos.create', compact('cetpros', 'programas', 'marketings'));
     }
 
-    public function pdf(Alumno $alumno){
-        dd($alumno);
+    public function pdf(Request $request, string $alumno){
+        $alumno2 = Alumno::find($alumno);
+        dd($alumno2);
         $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno'))->setPaper('a4', 'landscape');
         return $pdf->stream();
         // $alumnos = Alumno::all();
@@ -73,9 +78,10 @@ class AlumnoController extends Controller
             'expects'=> 'required',
             'anio_academi'=> 'required',
             'code_inscrip'=> 'required',
-            'prog_estudio'=> 'required',
 
+            'programa_estudio_id'=> 'required',
             'cetpro_id' => 'required',
+            'marketing_id' => 'required'
         ]);
 
         $alumno = Alumno::create($request->all());
@@ -88,7 +94,8 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno'))->setPaper('a4', 'landscape');
+        $cetpro = Cetpro::find($alumno->cetpro_id);
+        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno','cetpro'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 
@@ -98,7 +105,9 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         $cetpros = Cetpro::all();
-        return view('admin.alumnos.edit', compact('alumno','cetpros'));
+        $programas = Programa::all();
+        $marketings = Marketing::all();
+        return view('admin.alumnos.edit', compact('alumno','cetpros','programas', 'marketings'));
     }
 
     /**
@@ -137,9 +146,10 @@ class AlumnoController extends Controller
             'expects'=> 'required',
             'anio_academi'=> 'required',
             'code_inscrip'=> 'required',
-            'prog_estudio'=> 'required',
 
+            'programa_estudio_id'=> 'required',
             'cetpro_id' => 'required',
+            'marketing_id' => 'required'
         ]);
 
         $alumno->update($request->all());
