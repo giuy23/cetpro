@@ -24,7 +24,7 @@
 .anio{
     text-align: center;
     margin-top: -3%;
-}    
+}
 
 /* TABLE */
 
@@ -93,25 +93,25 @@
                 </tr>
                 <tr>
                     <td class="bold-column rows-1">Programa de estudios: </td>
-                    <td>{{$alumno->prog_estudio}}</td>
+                    <td>{{$programa->nombre}}</td>
                     <td class="bold-column rows-1">Periodo lectivo</td>
                     <td>{{date('Y')}}</td>
                 </tr>
                 <tr>
                     <td class="bold-column rows-1">Módulo: </td>
-                    <td></td>
+                    <td>{{$programa->modulo}}</td>
                     <td class="bold-column rows-1">Periodo de clases: </td>
-                    <td></td>
+                    <td>{{$programa->periodo_clases_inicio." AL ".$programa->periodo_clases_final}}</td>
                 </tr>
                 <tr>
                     <td class="bold-column rows-1">Nivel Formativo: </td>
-                    <td></td>
+                    <td>{{$programa->nivel_formativo}}</td>
                     <td class="bold-column rows-1">Periodo Académico</td>
-                    <td></td>
+                    <td>I</td>
                 </tr>
                 <tr>
                     <td class="bold-column rows-1">Tipo de plan de estudios: </td>
-                    <td></td>
+                    <td>MODULAR</td>
                     <td class="bold-column rows-1">Número de documento: </td>
                     <td>{{$alumno->DNI}}</td>
                 </tr>
@@ -134,16 +134,33 @@
                 <th>CONDICIÓN</th>
             </tr>
             {{$cont = 0}}
-            
-            @for ($i = 0; $i < 10; $i++)
+
+            {{-- @for ($i = 0; $i < 10; $i++)
             <tr>
                 <td>{{$cont+=1}}</td>
-                <td>{{'UD'.$cont}}</td>
+                <td>{{'UD'.$cont}}{{$curso->nombre}}</td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            @endfor
+            @endfor --}}
+            @for ($i = 0; $i < 10; $i++)
+    <tr>
+        <td>{{ $cont += 1 }}</td>
+        @if($cursos->count() > $i)
+            <td>{{ 'UD' . $cont . $cursos[$i]->nombre }}</td>
+            <td>{{$cursos[$i]->creditos}}</td>
+            <td>{{$cursos[$i]->horas}}</td>
+            <td>{{$cursos[$i]->condicion}}</td>
+        @else
+            <td>{{'UD'. $cont}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        @endif
+    </tr>
+@endfor
+
             {{-- @foreach ($nums as $num)
 
                 <tr>

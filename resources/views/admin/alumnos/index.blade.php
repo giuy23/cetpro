@@ -4,13 +4,13 @@
 @section('content')
     <div class="row">
         <div class="card">
-            <div class="card-body">
-                Alumnos
-                <a href="{{ route('admin.alumnos.create') }}"><button class="btn btn-info animation-on-hover"
-                        type="button">Crear </button></a>
-
+            <div class="d-flex justify-content-between">
+                <h4 class="d-flex align-items-center ml-4">Alumnos</h4>
+                <a href="{{ route('admin.alumnos.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
+                    type="button">Crear </button></a>
             </div>
         </div>
+
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
@@ -38,11 +38,11 @@
                                         <td>{{ $alumno->cel_propio }}</td>
                                         <td>{{ $alumno->anio_academi }}</td>
                                         <td width="10px">
-                                                <a class="btn btn-primary btn-sm"
+                                                <a class="btn btn-success btn-sm"
                                                     href="{{ route('admin.alumnos.edit', $alumno) }}">Editar</a>
                                         </td>
                                         <td width="10px">
-                                            <a class="btn btn-primary btn-sm" target="_blank"
+                                            <a class="btn btn-info btn-sm" target="_blank"
                                                 {{-- href="{{ route('admin.alumnos.pdf', $alumno->id) }}">PDF</a> --}}
                                                 href="{{ route('admin.alumnos.show', $alumno) }}">PDF</a>
                                     </td>

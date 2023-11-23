@@ -11,4 +11,14 @@ class Alumno extends Model
 
     protected $guarded = [];
 
+    public function programa()
+    {
+        return $this->belongsTo(Programa::class);
+    }
+
+    public function cetpro()
+    {
+        return $this->belongsTo(Cetpro::class, 'cetpro_id');
+    }
+
 }

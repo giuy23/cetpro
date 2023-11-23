@@ -43,13 +43,13 @@
 
                     <div class="card">
                         <div class="form-group col-md-6">
-                            <a data-toggle="collapse" href="#cursos-programa" aria-expanded="true">
-                                <i class="fab fa-laravel"></i>
+                            <a data-toggle="collapse" href="#cursos-programa" aria-expanded="true" class="btn btn-info animation-on-hover">
+                                {{-- <i class="fab fa-laravel"></i> --}}
                                 <span class="nav-link-text">Cursos del programa</span>
-                                <b class="caret mt-1"></b>
+                                {{-- <b class="caret mt-1"></b> --}}
                             </a>
                             <div class="card">
-                                <div class="collapse show" id="cursos-programa">
+                                <div class="collapse" id="cursos-programa">
                                     <div class="card-body">
                                         {{-- <input class="form-check-input" type="checkbox" id="cursos_id" name="" value="{{ $curso->id }}"
                                         {{ null !== request('cursos_id') && in_array($curso->id, request('cursos_id')) ? 'checked' : '' }}> --}}
@@ -65,7 +65,7 @@
                                             </div>
                                         @endforeach --}}
                                         @foreach ($cursos as $curso)
-                                            <div class="form-check form-check-inline">
+                                            <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input class="form-check-input" type="checkbox" id="cursos_id" name="cursos[]" value="{{ $curso->id }}"
                                                     {{ null !== request('cursos') && in_array($curso->id, request('cursos')) ? 'checked' : '' }}>

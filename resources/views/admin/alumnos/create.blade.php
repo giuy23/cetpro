@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="DNI">DNI</label>
-                                <input type="number" class="form-control" id="DNI" name="DNI" required placeholder="DNI">
+                                <input type="number" class="form-control" id="DNI" name="DNI" required placeholder="DNI" min="0">
                             </div>
                         </div>
                     </div>
@@ -187,21 +187,11 @@
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="form-group col-md-4">
-                                <label for="cetpro_id">CETPRO</label>
-                                <input type="text" class="form-control" id="cetpro_id" name="cetpro_id"
-                                    placeholder="CETPRO">
-                            </div> --}}
                             <div class="form-group col-md-4">
                                 <label for="anio_academi">Año academico</label>
                                 <input type="date" class="form-control" id="anio_academi" name="anio_academi" required
                                     placeholder="Año academico">
                             </div>
-                            {{-- <div class="form-group col-md-4">
-                                <label for="prog_estudio">Programa de estudio</label>
-                                <input type="text" class="form-control" id="prog_estudio" name="prog_estudio" required
-                                    placeholder="Programa de estudio">
-                            </div> --}}
                             <div class="form-group col-md-4">
                                 <label for="programa_estudio_id">Programa de estudio</label>
                                 <select id="programa_estudio_id" name="programa_estudio_id" required class="form-control">
@@ -227,11 +217,6 @@
 
                     <div class="card">
                         <div class="form-row">
-                            {{-- <div class="form-group col-md-4">
-                                <label for="marketing_id">Medio</label>
-                                <input type="text" class="form-control" id="marketing_id" name="marketing_id" required
-                                    placeholder="Medio por el cual se enteró">
-                            </div> --}}
                             <div class="form-group col-md-4">
                                 <label for="marketing_id">Medio</label>
                                 <select id="marketing_id" name="marketing_id" required class="form-control">
@@ -243,9 +228,34 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Crear Registro</button>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Crear Registro</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        let btn = document.getElementById('btn-submit');
+
+        btn.addEventListener('click', () => {let dni = document.getElementById('DNI').value;
+            if (dni.length !== 8) {
+                alert('dni')
+            }
+            alert('asd')
+        })
+        console.log('HOla');
+    </script>
 @endsection
+
+{{-- @section('js')
+    <script>
+        console.log('HOla');
+
+    </script>
+@endsection
+
+@push('js')
+<script>
+    console.log('HOla');
+
+</script>
+@endpush --}}

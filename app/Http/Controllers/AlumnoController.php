@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Cetpro;
+use App\Models\Curso;
 use App\Models\Marketing;
 use App\Models\Programa;
 use Illuminate\Http\Request;
@@ -94,8 +95,11 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
+        $programa = Programa::find($alumno->programa_estudio_id);
+
         $cetpro = Cetpro::find($alumno->cetpro_id);
-        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno','cetpro'))->setPaper('a4', 'landscape');
+        $cursos = $programa->cursos;
+        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno','cetpro', 'programa', 'cursos'))->setPaper('a4', 'landscape');
         return $pdf->stream();
     }
 
