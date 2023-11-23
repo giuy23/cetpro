@@ -9,6 +9,11 @@ class Programa extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function cursos()
+    {
+        return $this->belongsToMany(Curso::class);
+    }
 
 }

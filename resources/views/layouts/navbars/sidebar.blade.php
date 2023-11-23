@@ -1,3 +1,7 @@
+@php
+    $pageSlug = $pageSlug ?? 'dashboard';
+@endphp
+
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">

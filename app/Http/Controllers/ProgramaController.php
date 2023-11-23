@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Programa;
 use Illuminate\Http\Request;
+use App\Models\Curso;
 
 class ProgramaController extends Controller
 {
@@ -21,7 +22,8 @@ class ProgramaController extends Controller
      */
     public function create()
     {
-        return view('admin.programas.create');
+        $cursos = Curso::all();
+        return view('admin.programas.create', compact('cursos'));
     }
 
     /**
@@ -29,15 +31,24 @@ class ProgramaController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'nombre' => 'required',
             'modulo' => 'required',
             'periodo_clases_inicio' => 'required',
             'periodo_clases_final' => 'required',
-            'nivel_formativo' => 'required'
+            'nivel_formativo' => 'required',
+            'cursos'
         ]);
-
         $programa = Programa::create($request->all());
+
+        // if ($request->has('cursos_id')) {
+        //     $programa->cursos()->sync($request->cursos_id);
+        // }
+
+        if($request->cursos){
+            $programa->cursos()->attach($request->cursos);
+        }
 
         return redirect()->route('admin.programas.edit', $programa)->with('info', 'El formulario se registró con éxito');
     }
@@ -55,7 +66,8 @@ class ProgramaController extends Controller
      */
     public function edit(Programa $programa)
     {
-        return view("admin.programas.edit", compact("programa"));
+        $cursos = Curso::all();
+        return view("admin.programas.edit", compact('programa', 'cursos'));
     }
 
     /**
@@ -72,6 +84,10 @@ class ProgramaController extends Controller
         ]);
 
         $programa->update($request->all());
+
+        if($request->cursos){
+            $programa->cursos()->sync($request->cursos);
+        }
 
         return redirect()->route('admin.programas.edit', $programa)->with('info', 'El formulario se registró con éxito');
     }

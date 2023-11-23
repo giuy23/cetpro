@@ -10,7 +10,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Nombre">
+                                <input type="text" class="form-control" id="nombre" name="nombre" required
+                                    placeholder="Nombre">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="modulo">Módulo</label>
@@ -24,18 +25,59 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="periodo_clases_inicio">Fecha de inicio del Programa</label>
-                                <input type="date" class="form-control" id="periodo_clases_inicio" name="periodo_clases_inicio" required
-                                    placeholder="Resolución de Autorización">
+                                <input type="date" class="form-control" id="periodo_clases_inicio"
+                                    name="periodo_clases_inicio" required placeholder="Resolución de Autorización">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="periodo_clases_final">Fecha de finalización del Programa</label>
-                                <input type="date" class="form-control" id="periodo_clases_final" name="periodo_clases_final" required
-                                    placeholder="Resolución de Autorización">
+                                <input type="date" class="form-control" id="periodo_clases_final"
+                                    name="periodo_clases_final" required placeholder="Resolución de Autorización">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="nivel_formativo">Nivel Formativo</label>
-                                <input type="text" class="form-control" id="nivel_formativo" name="nivel_formativo" required
-                                    placeholder="Resolución de Autorización">
+                                <input type="text" class="form-control" id="nivel_formativo" name="nivel_formativo"
+                                    required placeholder="Resolución de Autorización">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="form-group col-md-6">
+                            <a data-toggle="collapse" href="#cursos-programa" aria-expanded="true">
+                                <i class="fab fa-laravel"></i>
+                                <span class="nav-link-text">Cursos del programa</span>
+                                <b class="caret mt-1"></b>
+                            </a>
+                            <div class="card">
+                                <div class="collapse show" id="cursos-programa">
+                                    <div class="card-body">
+                                        {{-- <input class="form-check-input" type="checkbox" id="cursos_id" name="" value="{{ $curso->id }}"
+                                        {{ null !== request('cursos_id') && in_array($curso->id, request('cursos_id')) ? 'checked' : '' }}> --}}
+
+
+                                        {{-- @foreach ($cursos as $curso)
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" id="cursos_id"
+                                                        value="{{ $curso->id }}">{{ $curso->nombre }}
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                        @endforeach --}}
+                                        @foreach ($cursos as $curso)
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" id="cursos_id" name="cursos[]" value="{{ $curso->id }}"
+                                                    {{ null !== request('cursos') && in_array($curso->id, request('cursos')) ? 'checked' : '' }}>
+                                                    {{ $curso->nombre }}
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                        @endforeach
+
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
