@@ -87,7 +87,7 @@ class AlumnoController extends Controller
 
         $alumno = Alumno::create($request->all());
 
-        return redirect()->route('admin.alumnos.edit', $alumno)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.alumnos.index', $alumno)->with('info', 'El formulario se registró con éxito');
     }
 
     /**
@@ -158,7 +158,7 @@ class AlumnoController extends Controller
 
         $alumno->update($request->all());
 
-        return redirect()->route('admin.alumnos.edit', $alumno)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.alumnos.index', $alumno)->with('info', 'El formulario se editó con éxito');
     }
 
     /**
@@ -168,6 +168,6 @@ class AlumnoController extends Controller
     {
         $alumno->delete();
 
-        return redirect()->route('admin.alumnos.index', $alumno)->with('info', 'El registro se eliminó con éxito');
+        return redirect()->route('admin.alumnos.index', $alumno)->with('info', 'El registro se eliminó con éxito',);
     }
 }

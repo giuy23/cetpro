@@ -241,29 +241,46 @@
     </div>
     <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
     <script>
+       <script>
         document.addEventListener('DOMContentLoaded', function() {
             let btn = document.getElementById('btn-submit');
-            let camposValidar = ['DNI', 'pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi',
-                'tel_fijo', 'cel_propio', 'cel_emer'
-            ];
             let regex = /^[A-Za-z\s]+$/;
 
             btn.addEventListener('click', (event) => {
-                camposValidar.forEach(campo => {
-                    let valorCampo = document.getElementById(campo).value;
 
-                    if (campo === 'DNI' && valorCampo.length !== 8) {
-                        alertError(`El ${campo} debe tener 8 dígitos`);
-                        event.preventDefault();
-                    } else if ((campo === 'tel_fijo' || campo === 'cel_propio' || campo === 'cel_emer') && valorCampo.length !== 9) {
-                        alertError(`El ${campo} debe tener 9 dígitos`);
-                        event.preventDefault();
-                    } else if (!regex.test(valorCampo)) {
-                        alertError(`El ${campo} debe contener solo letras y espacios.`);
-                        event.preventDefault();
+                let tel_fijo = document.getElementById('tel_fijo').value;
+
+                let numeros = ['DNI', 'cel_propio', 'cel_emer'];
+                let campos_numeros = ['DNI', 'CELULAR PROPIO', 'CELULAR EMERGENCIA']
+                let cont = 0;
+                for (const campo of numeros) {
+                    let validar = document.getElementById(campo).value;
+                    if (validar.length != 8) {
+                        alertError(`El ${campos_numeros[cont]} debe tener 8 dígitos`, 'error');
+                        break;
                     }
-                });
+                    cont += 1;
+                }
+
+                let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi']
+                let campos_letras = ['PAÍS', 'LUGAR DE NACMIENTO', 'DISTRITO DE NACIMIENTO',
+                    'PROVINCIA DE NACIMIENTO', 'REGIÓN DE NACIMIENTO',
+                ]
+                cont = 0;
+                for (const campo of letras) {
+                    let validar = document.getElementById(campo).value;
+                    if (!regex.test(validar)) {
+                        alertError(`${campos_letras[cont]} debe contener solo letras`, 'error');
+                        console.log(cont);
+                    }
+                    cont += 1;
+                }
+
+                if (tel_fijo.length != 10) {
+                    alertError('El TELEFONO FIJO debe tener 10 dígitos')
+                }
             });
         });
+    </script>
     </script>
 @endsection
