@@ -1,13 +1,21 @@
 @extends('layouts.app', ['pageSlug' => 'alumnos'])
-{{-- @extends('layouts.app', ['page' => __('Tables'), 'pageSlug' => 'tables']) --}}
 
 @section('content')
+
+@if (session('info'))
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
+    <script>
+        alertError('{{ session('info') }}', 'success');
+    </script>
+@endif
+
+
     <div class="row">
         <div class="card">
             <div class="d-flex justify-content-between">
                 <h4 class="d-flex align-items-center ml-4">Alumnos</h4>
                 <a href="{{ route('admin.alumnos.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
-                    type="button">Crear </button></a>
+                        type="button">Crear </button></a>
             </div>
         </div>
 
@@ -38,22 +46,31 @@
                                         <td>{{ $alumno->cel_propio }}</td>
                                         <td>{{ $alumno->anio_academi }}</td>
                                         <td width="10px">
-                                                <a class="btn btn-success btn-sm"
-                                                    href="{{ route('admin.alumnos.edit', $alumno) }}">Editar</a>
+                                            <a class="btn btn-success btn-sm"
+                                                href="{{ route('admin.alumnos.edit', $alumno) }}">Editar</a>
                                         </td>
                                         <td width="10px">
-                                            <a class="btn btn-info btn-sm" target="_blank"
-                                                {{-- href="{{ route('admin.alumnos.pdf', $alumno->id) }}">PDF</a> --}}
+                                            <a class="btn btn-info btn-sm" target="_blank" {{-- href="{{ route('admin.alumnos.pdf', $alumno->id) }}">PDF</a> --}}
                                                 href="{{ route('admin.alumnos.show', $alumno) }}">PDF</a>
-                                    </td>
-                                        <td width="10px">
+                                        </td>
+                                        {{--
+                                            <td width="10px">
                                                 <form action="{{ route('admin.alumnos.destroy', $alumno) }}"
-                                                    method="POST">
+                                                    method="POST" id="form-delete">
                                                     @csrf
                                                     @method('delete')
-
-                                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" >Eliminar</button>
                                                 </form>
+                                            </td>
+                                            --}}
+                                        <td width="10px">
+                                            <form action="{{ route('admin.alumnos.destroy', $alumno) }}" method="POST"
+                                                id="form-delete">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="button" class="btn btn-danger btn-sm btn-delete"
+                                                    data-alumno-id="{{ $alumno->id }}">Eliminar</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -64,4 +81,14 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
+
+    <script>
+        document.querySelectorAll('.btn-delete').forEach((button) => {
+            button.addEventListener('click', function() {
+                const form = this.closest('form');
+                confirmDelete(form);
+            });
+        });
+    </script>
 @endsection

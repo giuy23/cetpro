@@ -19,6 +19,10 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+
+        {{-- SWEET --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -56,7 +60,7 @@
                 <i class="fa fa-cog fa-2x"> </i>
                 </a>
                 <ul class="dropdown-menu">
-                <li class="header-title"> Sidebar Background</li>
+                <li class="header-title"> Color de la barra</li>
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="badge-colors text-center">
@@ -67,7 +71,7 @@
                     <div class="clearfix"></div>
                     </a>
                 </li>
-                <li class="button-container">
+                {{-- <li class="button-container">
                     <a href="https://www.creative-tim.com/product/black-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
                     <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
                     Documentation
@@ -75,18 +79,23 @@
                     <a href="https://www.creative-tim.com/product/black-dashboard-pro-laravel" target="_blank" class="btn btn-danger btn-block btn-round">
                     Upgrade to PRO
                     </a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
+                </li> --}}
+                {{-- <li class="header-title">Thank you for 95 shares!</li>
                 <li class="button-container text-center">
                     <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
                     <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
                     <br>
                     <br>
                     <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li>
+                </li> --}}
                 </ul>
             </div>
         </div>
+
+        {{-- SWEET ALERT
+        <script src="{{ asset('admin') }}/alerts/alert-error.js"></script> --}}
+
+
         <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>

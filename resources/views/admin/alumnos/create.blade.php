@@ -29,7 +29,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="sexo">Sexo</label>
-                                <input type="text" class="form-control" id="sexo" name="sexo" required placeholder="Sexo">
+                                <input type="text" class="form-control" id="sexo" name="sexo" required
+                                    placeholder="Sexo">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="f_nacimiento">Fecha de Nacimiento</label>
@@ -38,7 +39,8 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="DNI">DNI</label>
-                                <input type="number" class="form-control" id="DNI" name="DNI" required placeholder="DNI" min="0">
+                                <input type="number" class="form-control" id="DNI" name="DNI" required
+                                    placeholder="DNI" min="0">
                             </div>
                         </div>
                     </div>
@@ -183,20 +185,23 @@
                                 <label for="cetpro_id">CETPRO</label>
                                 <select id="cetpro_id" name="cetpro_id" required class="form-control">
                                     @foreach ($cetpros as $cetpro)
-                                        <option value="{{$cetpro->id}}" class="text-muted">{{ $cetpro->name_cetpro }}</option>
+                                        <option value="{{ $cetpro->id }}" class="text-muted">{{ $cetpro->name_cetpro }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="anio_academi">Año academico</label>
-                                <input type="date" class="form-control" id="anio_academi" name="anio_academi" required
-                                    placeholder="Año academico">
+                                <input type="date" class="form-control" id="anio_academi" name="anio_academi"
+                                    required placeholder="Año academico">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="programa_estudio_id">Programa de estudio</label>
-                                <select id="programa_estudio_id" name="programa_estudio_id" required class="form-control">
+                                <select id="programa_estudio_id" name="programa_estudio_id" required
+                                    class="form-control">
                                     @foreach ($programas as $programa)
-                                        <option value="{{$programa->id}}" class="text-muted">{{ $programa->nombre }}</option>
+                                        <option value="{{ $programa->id }}" class="text-muted">{{ $programa->nombre }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -205,8 +210,8 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="code_inscrip">Código de inscripción</label>
-                                <input type="text" class="form-control" id="code_inscrip" name="code_inscrip" required
-                                    placeholder="Código de inscripción">
+                                <input type="text" class="form-control" id="code_inscrip" name="code_inscrip"
+                                    required placeholder="Código de inscripción">
                             </div>
                             <div class="form-group col-md-8">
                                 <label for="expects">Expectativas</label>
@@ -221,7 +226,8 @@
                                 <label for="marketing_id">Medio</label>
                                 <select id="marketing_id" name="marketing_id" required class="form-control">
                                     @foreach ($marketings as $marketing)
-                                        <option value="{{$marketing->id}}" class="text-muted">{{ $marketing->medio }}</option>
+                                        <option value="{{ $marketing->id }}" class="text-muted">{{ $marketing->medio }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -233,29 +239,31 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
     <script>
-        let btn = document.getElementById('btn-submit');
+        document.addEventListener('DOMContentLoaded', function() {
+            let btn = document.getElementById('btn-submit');
+            let camposValidar = ['DNI', 'pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi',
+                'tel_fijo', 'cel_propio', 'cel_emer'
+            ];
+            let regex = /^[A-Za-z\s]+$/;
 
-        btn.addEventListener('click', () => {let dni = document.getElementById('DNI').value;
-            if (dni.length !== 8) {
-                alert('dni')
-            }
-            alert('asd')
-        })
-        console.log('HOla');
+            btn.addEventListener('click', (event) => {
+                camposValidar.forEach(campo => {
+                    let valorCampo = document.getElementById(campo).value;
+
+                    if (campo === 'DNI' && valorCampo.length !== 8) {
+                        alertError(`El ${campo} debe tener 8 dígitos`);
+                        event.preventDefault();
+                    } else if ((campo === 'tel_fijo' || campo === 'cel_propio' || campo === 'cel_emer') && valorCampo.length !== 9) {
+                        alertError(`El ${campo} debe tener 9 dígitos`);
+                        event.preventDefault();
+                    } else if (!regex.test(valorCampo)) {
+                        alertError(`El ${campo} debe contener solo letras y espacios.`);
+                        event.preventDefault();
+                    }
+                });
+            });
+        });
     </script>
 @endsection
-
-{{-- @section('js')
-    <script>
-        console.log('HOla');
-
-    </script>
-@endsection
-
-@push('js')
-<script>
-    console.log('HOla');
-
-</script>
-@endpush --}}
