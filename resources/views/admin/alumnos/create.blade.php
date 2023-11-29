@@ -67,18 +67,33 @@
                                 <input type="text" class="form-control" id="provi_nacimi" name="provi_nacimi" required
                                     placeholder="Provincia de Nacimiento">
                             </div>
-                        </div>
-
-                        <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="regi_nacimi">Región de Nacimiento</label>
                                 <input type="text" class="form-control" id="regi_nacimi" name="regi_nacimi" required
                                     placeholder="Región de Nacimiento">
                             </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="ditri_actual">Distrito actual de residencia</label>
+                                <input type="text" class="form-control" id="ditri_actual" name="ditri_actual" required
+                                    placeholder="Distrito actual de residencia">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="provi_actual">Provincia actual de residencia</label>
+                                <input type="text" class="form-control" id="provi_actual" name="provi_actual" required
+                                    placeholder="Provincia actual de residencia">
+                            </div>
                             <div class="form-group col-md-4">
-                                <label for="direc_actual">Dirección Actual</label>
+                                <label for="regi_actual">Región actual de residencia</label>
+                                <input type="text" class="form-control" id="regi_actual" name="regi_actual" required
+                                    placeholder="Región actual de residencia">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="direc_actual">Dirección actual de residencia</label>
                                 <input type="text" class="form-control" id="direc_actual" name="direc_actual" required
-                                    placeholder="Dirección Actual">
+                                    placeholder="Dirección actual de residencia">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="refe_direc">Referencia de Dirección</label>
@@ -124,7 +139,7 @@
                     <div class="card">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="aa_nn_emer">Apellidos y Nombres</label>
+                                <label for="aa_nn_emer">Apellidos y Nombres de su contacto de emergencia</label>
                                 <input type="text" class="form-control" id="aa_nn_emer" name="aa_nn_emer" required
                                     placeholder="Apellidos y Nombres del Contacto de Emergencia">
                             </div>
@@ -143,15 +158,21 @@
 
                     <div class="card">
                         <div class="form-row">
+                            
                             <div class="form-group col-md-4">
                                 <label for="puesto_work">Puesto de trabajo</label>
                                 <input type="text" class="form-control" id="puesto_work" name="puesto_work"
                                     placeholder="Puesto de trabajo">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="nro_carga_fam">Gargo Familiar</label>
+                                <label for="est_civil">Estado civil</label>
+                                <input type="text" class="form-control" id="est_civil" name="est_civil"
+                                    placeholder="Estado civil">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="nro_carga_fam">Carga Familiar</label>
                                 <input type="text" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
-                                    placeholder="Gargo Familiar">
+                                    placeholder="Carga Familiar">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="net_en_casa">¿Cuenta con Internet en Casa?</label>
@@ -170,6 +191,11 @@
                                 <label for="discapacidad">Sufre Alguna Discapacidad?</label>
                                 <input type="text" class="form-control" id="discapacidad" name="discapacidad"
                                     placeholder="Sufre Alguna Discapacidad?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="religion">Religión</label>
+                                <input type="text" class="form-control" id="religion" name="religion"
+                                    placeholder="Religión">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="lengua_mater">Lengua Materna</label>
@@ -192,7 +218,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="anio_academi">Año academico</label>
-                                <input type="date" class="form-control" id="anio_academi" name="anio_academi"
+                                <input type="text" class="form-control" id="anio_academi" name="anio_academi"
                                     required placeholder="Año academico">
                             </div>
                             <div class="form-group col-md-4">
@@ -263,7 +289,7 @@
                 }
 
                 let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi']
-                let campos_letras = ['PAÍS', 'LUGAR DE NACMIENTO', 'DISTRITO DE NACIMIENTO',
+                let campos_letras = ['PAÍS', 'LUGAR DE NACIMIENTO', 'DISTRITO DE NACIMIENTO',
                     'PROVINCIA DE NACIMIENTO', 'REGIÓN DE NACIMIENTO',
                 ]
                 cont = 0;

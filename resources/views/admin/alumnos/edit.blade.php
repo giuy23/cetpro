@@ -67,13 +67,29 @@
                                 <input type="text" class="form-control" id="provi_nacimi" name="provi_nacimi" required
                                     value="{{ $alumno->provi_nacimi }}" placeholder="Provincia de Nacimiento">
                             </div>
-                        </div>
-
-                        <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="regi_nacimi">Región de Nacimiento</label>
                                 <input type="text" class="form-control" id="regi_nacimi" name="regi_nacimi" required
                                     value="{{ $alumno->regi_nacimi }}" placeholder="Región de Nacimiento">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-3">
+                                <label for="ditri_actual">Distrito actual de residencia</label>
+                                <input type="text" class="form-control" id="ditri_actual" name="ditri_actual" required
+                                    value="{{ $alumno->ditri_actual }}" placeholder="Distrito actual de residencia">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="provi_actual">Provincia actual de residencia</label>
+                                <input type="text" class="form-control" id="provi_actual" name="provi_actual" required
+                                    value="{{ $alumno->provi_actual }}" placeholder="Provincia actual de residencia">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="regi_actual">Región actual de residencia</label>
+                                <input type="text" class="form-control" id="regi_actual" name="regi_actual" required
+                                    value="{{ $alumno->regi_actual }}" placeholder="Región actual de residencia">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="direc_actual">Dirección Actual</label>
@@ -124,7 +140,7 @@
                     <div class="card">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="aa_nn_emer">Apellidos y Nombres</label>
+                                <label for="aa_nn_emer">Apellidos y Nombres del Contacto de Emergencia</label>
                                 <input type="text" class="form-control" id="aa_nn_emer" name="aa_nn_emer" required
                                     value="{{ $alumno->aa_nn_emer }}"
                                     placeholder="Apellidos y Nombres del Contacto de Emergencia">
@@ -150,9 +166,14 @@
                                     value="{{ $alumno->puesto_work }}" placeholder="Puesto de trabajo">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="nro_carga_fam">Gargo Familiar</label>
+                                <label for="est_civil">Estado Civil</label>
+                                <input type="text" class="form-control" id="est_civil" name="est_civil"
+                                    value="{{ $alumno->est_civil }}" placeholder="Puesto de trabajo">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="nro_carga_fam">Carga Familiar</label>
                                 <input type="text" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
-                                    value="{{ $alumno->nro_carga_fam }}" placeholder="Gargo Familiar">
+                                    value="{{ $alumno->nro_carga_fam }}" placeholder="Carga Familiar">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="net_en_casa">¿Cuenta con Internet en Casa?</label>
@@ -171,6 +192,11 @@
                                 <label for="discapacidad">Sufre Alguna Discapacidad?</label>
                                 <input type="text" class="form-control" id="discapacidad" name="discapacidad"
                                     value="{{ $alumno->discapacidad }}" placeholder="Sufre Alguna Discapacidad?">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="religion">Religión</label>
+                                <input type="text" class="form-control" id="religion" name="religion"
+                                    value="{{ $alumno->religion }}" placeholder="Religión">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="lengua_mater">Lengua Materna</label>

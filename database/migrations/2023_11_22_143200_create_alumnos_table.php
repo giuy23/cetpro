@@ -29,12 +29,17 @@ return new class extends Migration
             $table->string('ditri_nacimi');
             $table->string('provi_nacimi');
             $table->string('regi_nacimi');
+            $table->string('ditri_actual');
+            $table->string('provi_actual');
+            $table->string('regi_actual');
             $table->string('direc_actual');
             $table->string('refe_direc') -> nullable();
             $table->string('aa_nn_emer');
             $table->string('parent_emer');
             $table->integer('cel_emer');
+            $table->string('religion') -> nullable();
             $table->string('puesto_work') -> nullable();
+            $table->string('est_civil') -> nullable();
             $table->integer('nro_carga_fam') -> nullable();
             $table->string('net_en_casa');
             $table->string('operador_cel') -> nullable();
@@ -42,7 +47,7 @@ return new class extends Migration
             $table->string('discapacidad') -> nullable();
             $table->string('lengua_mater') -> nullable();
             $table->text('expects') -> nullable();
-            $table->date('anio_academi');
+            $table->integer('anio_academi');
             $table->string('code_inscrip');
 
             // Clave foránea a la tabla "programas"
