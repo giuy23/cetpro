@@ -50,7 +50,7 @@ class ProgramaController extends Controller
             $programa->cursos()->attach($request->cursos);
         }
 
-        return redirect()->route('admin.programas.edit', $programa)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.programas.index', $programa)->with('info', 'El registro se registró con éxito');
     }
 
     /**
@@ -89,7 +89,7 @@ class ProgramaController extends Controller
             $programa->cursos()->sync($request->cursos);
         }
 
-        return redirect()->route('admin.programas.edit', $programa)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.programas.index', $programa)->with('info', 'El registro se actualzió con éxito');
     }
 
     /**

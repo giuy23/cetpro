@@ -1,6 +1,14 @@
 @extends('layouts.app', ['pageSlug' => 'programas'])
 
 @section('content')
+
+@if (session('info'))
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
+    <script>
+        alertError('{{ session('info') }}', 'success');
+    </script>
+@endif
+
     <div class="row">
         <div class="card">
             <div class="card-body">

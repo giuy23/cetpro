@@ -35,7 +35,7 @@ class MarketingController extends Controller
         ]);
 
         $marketing = Marketing::create($request->all());
-        return redirect()->route('admin.marketings.edit', $marketing)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.marketings.index', $marketing)->with('info', 'El registro se registró con éxito');
     }
 
     /**
@@ -65,7 +65,7 @@ class MarketingController extends Controller
         ]);
 
         $marketing->update($request->all());
-        return redirect()->route('admin.marketings.edit', $marketing)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.marketings.index', $marketing)->with('info', 'El registro se actualizó con éxito');
     }
 
     /**

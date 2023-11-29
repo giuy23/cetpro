@@ -50,7 +50,7 @@ class CetproController extends Controller
 
         $cetpro = Cetpro::create($request->all());
 
-        return redirect()->route('admin.cetpros.edit', $cetpro)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.cetpros.index', $cetpro)->with('info', 'El registro se registró con éxito');
     }
 
     /**
@@ -95,7 +95,7 @@ class CetproController extends Controller
 
         $cetpro->update($request->all());
 
-        return redirect()->route('admin.cetpros.edit', $cetpro)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.cetpros.index', $cetpro)->with('info', 'El registro se actualizó con éxito');
     }
 
     /**

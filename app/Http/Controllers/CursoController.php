@@ -38,7 +38,7 @@ class CursoController extends Controller
 
         $curso = Curso::create($request->all());
 
-        return redirect()->route('admin.cursos.edit', $curso)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.cursos.index', $curso)->with('info', 'El registro se registró con éxito');
     }
 
     /**
@@ -71,7 +71,7 @@ class CursoController extends Controller
 
         $curso->update($request->all());
 
-        return redirect()->route('admin.cursos.edit', $curso)->with('info', 'El formulario se registró con éxito');
+        return redirect()->route('admin.cursos.index', $curso)->with('info', 'El registro se actualizó con éxito');
     }
 
     /**
