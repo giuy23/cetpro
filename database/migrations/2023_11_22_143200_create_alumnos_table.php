@@ -52,7 +52,7 @@ return new class extends Migration
 
             // Clave foránea a la tabla "programas"
             $table->unsignedBigInteger('programa_estudio_id');
-            $table->foreign('programa_estudio_id')->references('id')->on('programas');//->onDelete('set null');
+            // $table->foreign('programa_estudio_id')->references('id')->on('programas');//->onDelete('set null');
 
             // Clave foránea a la tabla "cetpro"
             $table->unsignedBigInteger('cetpro_id');
@@ -61,7 +61,7 @@ return new class extends Migration
 
             // Clave foránea a la tabla "marketing"
             $table->unsignedBigInteger('marketing_id');
-            $table->foreign('marketing_id')->references('id')->on('marketings');//->onDelete('set null');
+            // $table->foreign('marketing_id')->references('id')->on('marketings');//->onDelete('set null');
 
             $table->timestamps();
         });
