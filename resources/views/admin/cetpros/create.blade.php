@@ -87,7 +87,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" name="telefono" required
+                                <input type="number" min="0" class="form-control" id="telefono" name="telefono" required
                                     placeholder="Teléfono">
                             </div>
                             <div class="form-group col-md-3">
@@ -108,9 +108,38 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Crear Registro</button>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Crear Registro</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (e) => {
+            let btn = document.getElementById('btn-submit');
+            let regex = /^[A-Za-z\s]+$/;
+            let errores = false; 
+            btn.addEventListener('click', (e) => {
+                const form = document.getElementById('formulario');
+                let tel_fijo = document.getElementById('telefono').value;
+                let celular = document.getElementById('celular').value;
+            e.preventDefault();
+            errores = false;
+
+            if (tel_fijo.length != 10) {
+                    alertError('El TELEFONO FIJO debe tener 10 dígitos', 'error');
+                    errores = true; // Se encontró un error
+                }
+                if (celular.length != 9) {
+                    alertError('El CELULAR debe tener 4 Dígitos', 'error');
+                    errores = true; // Se encontró un error
+                }
+                if (!errores) {
+                    form.submit();
+                }
+            });
+        })
+    </script>
+
 @endsection

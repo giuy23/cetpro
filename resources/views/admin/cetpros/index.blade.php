@@ -55,7 +55,9 @@
                                                     @csrf
                                                     @method('delete')
 
-                                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                                    {{-- <button type="submit" class="btn btn-danger btn-sm">Eliminar</button> --}}
+                                                    <button type="button" class="btn btn-danger btn-sm btn-delete"
+                                                    data-alumno-id="{{ $cetpro->id }}">Eliminar</button>
                                                 </form>
                                         </td>
                                     </tr>
@@ -67,4 +69,15 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
+
+    <script>
+        document.querySelectorAll('.btn-delete').forEach((button) => {
+            button.addEventListener('click', function() {
+                const form = this.closest('form');
+                confirmDelete(form);
+            });
+        });
+    </script>
 @endsection

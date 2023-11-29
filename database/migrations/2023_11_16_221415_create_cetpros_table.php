@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('code_modular');
             $table->string('ugel');
             $table->string('resol_programs');
-            $table->integer('telefono');
+            $table->bigInteger('telefono');
             $table->integer('celular');
             $table->string('direccion');
             $table->string('pag_web') -> nullable();

@@ -4,7 +4,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('admin.alumnos.index') }}" method="POST">
+                <form action="{{ route('admin.alumnos.index') }}" method="POST" id="formulario">
                     @csrf
 
                     <div class="card">
@@ -92,8 +92,8 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="direc_actual">Dirección actual de residencia</label>
-                                <input type="text" class="form-control" id="direc_actual" name="direc_actual" required
-                                    placeholder="Dirección actual de residencia">
+                                <input type="text" class="form-control" id="direc_actual" name="direc_actual"
+                                    required placeholder="Dirección actual de residencia">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="refe_direc">Referencia de Dirección</label>
@@ -158,7 +158,7 @@
 
                     <div class="card">
                         <div class="form-row">
-                            
+
                             <div class="form-group col-md-4">
                                 <label for="puesto_work">Puesto de trabajo</label>
                                 <input type="text" class="form-control" id="puesto_work" name="puesto_work"
@@ -218,7 +218,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="anio_academi">Año academico</label>
-                                <input type="text" class="form-control" id="anio_academi" name="anio_academi"
+                                <input type="number" class="form-control" id="anio_academi" name="anio_academi"
                                     required placeholder="Año academico">
                             </div>
                             <div class="form-group col-md-4">
@@ -267,46 +267,70 @@
     </div>
     <script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
     <script>
-       <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', (e) => {
             let btn = document.getElementById('btn-submit');
             let regex = /^[A-Za-z\s]+$/;
+            let errores = false; // Variable para rastrear errores
 
-            btn.addEventListener('click', (event) => {
 
+            btn.addEventListener('click', (e) => {
+
+                e.preventDefault();
+
+                // Reinicia la variable errores a false antes de verificar cada campo
+                errores = false;
+
+                const form = document.getElementById('formulario');
                 let tel_fijo = document.getElementById('tel_fijo').value;
+                let anio_academico = document.getElementById('anio_academi').value;
+                let dni = document.getElementById('DNI').value;
 
-                let numeros = ['DNI', 'cel_propio', 'cel_emer'];
-                let campos_numeros = ['DNI', 'CELULAR PROPIO', 'CELULAR EMERGENCIA']
+                if (dni.length != 8) {
+                    alertError(`El DNI debe tener 8 dígitos`, 'error');
+                    errores = true;
+                }
+
+                let numeros = ['cel_propio', 'cel_emer'];
+                let campos_numeros = ['CELULAR PROPIO', 'CELULAR EMERGENCIA'];
                 let cont = 0;
                 for (const campo of numeros) {
                     let validar = document.getElementById(campo).value;
-                    if (validar.length != 8) {
-                        alertError(`El ${campos_numeros[cont]} debe tener 8 dígitos`, 'error');
+                    if (validar.length != 9) {
+                        alertError(`El ${campos_numeros[cont]} debe tener 9 dígitos`, 'error');
+                        errores = true; // Se encontró un error
                         break;
                     }
                     cont += 1;
                 }
 
-                let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi']
+                let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi'];
                 let campos_letras = ['PAÍS', 'LUGAR DE NACIMIENTO', 'DISTRITO DE NACIMIENTO',
                     'PROVINCIA DE NACIMIENTO', 'REGIÓN DE NACIMIENTO',
-                ]
+                ];
                 cont = 0;
                 for (const campo of letras) {
                     let validar = document.getElementById(campo).value;
                     if (!regex.test(validar)) {
                         alertError(`${campos_letras[cont]} debe contener solo letras`, 'error');
+                        errores = true; // Se encontró un error
                         console.log(cont);
                     }
                     cont += 1;
                 }
 
                 if (tel_fijo.length != 10) {
-                    alertError('El TELEFONO FIJO debe tener 10 dígitos')
+                    alertError('El TELEFONO FIJO debe tener 10 dígitos', 'error');
+                    errores = true; // Se encontró un error
+                }
+                if (anio_academico.length != 4) {
+                    alertError('El AÑO debe tener 4 Dígitos', 'error');
+                    errores = true; // Se encontró un error
+                }
+                // Enviar el formulario solo si no hay errores
+                if (!errores) {
+                    form.submit();
                 }
             });
         });
-    </script>
     </script>
 @endsection

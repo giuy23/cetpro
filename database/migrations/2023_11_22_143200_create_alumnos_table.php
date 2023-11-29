@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('DNI', 8);
             $table->string('correo');
             $table->string('facebook') -> nullable();
-            $table->integer('tel_fijo') -> nullable();
+            $table->bigInteger('tel_fijo') -> nullable();
             $table->integer('cel_propio');
             $table->string('pais');
             $table->string('lu_nacimi') -> nullable();
@@ -52,15 +52,16 @@ return new class extends Migration
 
             // Clave foránea a la tabla "programas"
             $table->unsignedBigInteger('programa_estudio_id');
-            $table->foreign('programa_estudio_id')->references('id')->on('programas')->onDelete('cascade');
+            $table->foreign('programa_estudio_id')->references('id')->on('programas');//->onDelete('set null');
 
             // Clave foránea a la tabla "cetpro"
             $table->unsignedBigInteger('cetpro_id');
-            $table->foreign('cetpro_id')->references('id')->on('cetpros')->onDelete('cascade');
+            //$table->foreign('cetpro_id')->references('id')->on('cetpros');//->onDelete('cascade');
+            
 
             // Clave foránea a la tabla "marketing"
             $table->unsignedBigInteger('marketing_id');
-            $table->foreign('marketing_id')->references('id')->on('marketings')->onDelete('cascade');
+            $table->foreign('marketing_id')->references('id')->on('marketings');//->onDelete('set null');
 
             $table->timestamps();
         });

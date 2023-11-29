@@ -18,8 +18,8 @@ class AlumnoFactory extends Factory
     {
         return [
             'cetpro_id' => 1,
-            'programa_estudio_id' => 1,
-            'marketing_id' => 1,
+            'programa_estudio_id' => rand(1, 10),
+            'marketing_id' => rand(1, 10),
 
             'ape_pater' => fake()->word(),
             'ape_mater' => fake()->word(),
@@ -29,7 +29,7 @@ class AlumnoFactory extends Factory
             'DNI' => fake()->numberBetween(10000000,99999999),
             'correo' => fake()->unique()->safeEmail(),
             'facebook' => fake()->words(2,true),
-            'tel_fijo' =>fake()->numberBetween(100000000,999999999),
+            'tel_fijo' =>fake()->numberBetween(1000000000,9999999999),
             'cel_propio' =>fake()->numberBetween(100000000,999999999),
             'pais' => fake()->word(),
             'lu_nacimi' => fake()->words(4,true),

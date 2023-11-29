@@ -4284,12 +4284,14 @@ input[type="button"].btn-block {
   }
 }
 
+/* Cambio de Color */
 .nav {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  background-color: var(--gray);
 }
 
 .nav-link {
@@ -14872,14 +14874,18 @@ table.tablesorter thead tr .headerSortDown {
   transition: 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 
+/* Cambio de color */
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
+  background-color: var(--gray);
+  border-radius: 4px;
   width: 100%;
   min-height: 100%;
   max-height: calc(100vh - 705px);
   z-index: 4;
   position: relative;
   overflow: auto;
+
 }
 
 .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
