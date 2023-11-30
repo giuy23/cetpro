@@ -119,6 +119,7 @@ class AlumnoController extends Controller
         return view('admin.alumnos.edit', compact('alumno','cetpros','programas', 'marketings'));
     }
 
+
     /**
      * Update the specified resource in storage.
      */

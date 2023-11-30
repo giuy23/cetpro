@@ -25,7 +25,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Salesiano Don Bosco</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -46,8 +46,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Ingresar</a></li>
                     </ul>
                 </div>

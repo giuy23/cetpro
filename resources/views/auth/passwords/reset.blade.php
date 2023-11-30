@@ -1,14 +1,15 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => __('Reset password'), 'contentClass' => 'login-page'])
+@extends('layouts.app', ['class' => 'login-page', 'page' => __('Restablecer Contraseña'), 'contentClass' => 'login-page'])
 
 @section('content')
     <div class="col-lg-5 col-md-7 ml-auto mr-auto">
+
         <form class="form" method="post" action="{{ route('password.update') }}">
             @csrf
 
-            <div class="card card-login card-white">
-                <div class="card-header">
-                    <img src="{{ asset('black') }}/img/card-primary.png" alt="">
-                    <h1 class="card-title">{{ __('Reset password') }}</h1>
+            <div class="card card-login d-flex align-text-center align-content-center p-4">
+                <div class=" text-center">
+                    {{-- <img src="{{ asset('black') }}/img/card-primary.png" alt=""> --}}
+                    <h4 class="text-white">{{ __('Recuperar Contraseña') }}</h4>
                 </div>
                 <div class="card-body">
                     @include('alerts.success')
@@ -30,7 +31,7 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}">
+                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña') }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
                         <div class="input-group">
@@ -39,11 +40,12 @@
                                     <i class="tim-icons icon-lock-circle"></i>
                                 </div>
                             </div>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirmar Contraseña') }}">
                         </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Reset Password') }}</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3">{{ __('
+                        Restablecer Contraseña') }}</button>
                 </div>
             </div>
         </form>

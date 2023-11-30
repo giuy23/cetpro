@@ -11,11 +11,10 @@
 
     <div class="row">
         <div class="card">
-            <div class="card-body">
-                Cetpros
-                <a href="{{ route('admin.cetpros.create') }}"><button class="btn btn-info animation-on-hover"
+            <div class="d-flex justify-content-between">
+                <h4 class="d-flex align-items-center ml-4">Cetpros</h4>
+                <a href="{{ route('admin.cetpros.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
                         type="button">Crear </button></a>
-
             </div>
         </div>
         <div class="col-md-12">

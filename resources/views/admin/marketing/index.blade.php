@@ -10,14 +10,15 @@
 @endif
 
     <div class="row">
-        <div class="card">
-            <div class="card-body">
-                Marketing
-                <a href="{{ route('admin.marketings.create') }}"><button class="btn btn-info animation-on-hover"
-                        type="button">Crear </button></a>
 
+        <div class="card">
+            <div class="d-flex justify-content-between">
+                <h4 class="d-flex align-items-center ml-4">Marketing</h4>
+                <a href="{{ route('admin.marketings.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
+                        type="button">Crear </button></a>
             </div>
         </div>
+
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">

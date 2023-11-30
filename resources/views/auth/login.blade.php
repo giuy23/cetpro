@@ -103,7 +103,11 @@
                 <!-- Submit button -->
                 {{-- <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button> --}}
                 <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3">{{ __('Ingresar') }}</button>
-
+                <div class="pull-right">
+                    <h6>
+                        <a href="{{ route('password.request') }}" class="link footer-link">{{ __('Recuperar contraseña') }}</a>
+                    </h6>
+                </div>
                 {{-- <div class="divider d-flex align-items-center my-4">
                   <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                 </div>

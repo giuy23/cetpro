@@ -17,10 +17,10 @@ class CursoFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->word(),
+            'nombre' => fake()->words(4, true),
             'creditos' => fake()->numberBetween(1,999999),
             'horas' => fake()->numberBetween(1,999999),
-            'condicion' => fake()->words(4,true)
+            'condicion' => fake()->word()
         ];
     }
 }

@@ -203,6 +203,7 @@
                 <th>HORAS</th>
                 <th>CONDICIÓN</th>
             </tr>
+            {{-- <h1>{{$curso}}</h1> --}}
             {{ $cont = 0 }}
             @for ($i = 0; $i < 10; $i++)
                 <tr>

@@ -171,7 +171,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="nro_carga_fam">Carga Familiar</label>
-                                <input type="text" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
+                                <input type="number" min="0" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
                                     placeholder="Carga Familiar">
                             </div>
                             <div class="form-group col-md-4">
@@ -303,7 +303,7 @@
                     cont += 1;
                 }
 
-                let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi'];
+                let letras = ['pais', 'lu_nacimi', 'ditri_nacimi', 'provi_nacimi', 'regi_nacimi',];
                 let campos_letras = ['PAÍS', 'LUGAR DE NACIMIENTO', 'DISTRITO DE NACIMIENTO',
                     'PROVINCIA DE NACIMIENTO', 'REGIÓN DE NACIMIENTO',
                 ];

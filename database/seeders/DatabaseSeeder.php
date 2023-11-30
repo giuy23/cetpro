@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             MarketingSeeder::class,
             ProgramaSeeder::class,
             CursoSeeder::class,
-            AlumnoSeeder::class
+            AlumnoSeeder::class,
         ]);
     }
 }

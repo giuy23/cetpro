@@ -174,7 +174,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="nro_carga_fam">Carga Familiar</label>
-                                <input type="text" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
+                                <input type="number" min="0" class="form-control" id="nro_carga_fam" name="nro_carga_fam"
                                     value="{{ $alumno->nro_carga_fam }}" placeholder="Carga Familiar">
                             </div>
                             <div class="form-group col-md-4">
@@ -241,7 +241,7 @@
                                 <select id="programa_estudio_id" name="programa_estudio_id" required
                                     class="form-control">
                                     @foreach ($programas as $programa)
-                                        @if ($programa->id == $alumno->cetpro_id)
+                                        @if ($programa->id == $alumno->programa_estudio_id)
                                             {
                                             <option value="{{ $programa->id }}" selected class="text-muted">
                                                 {{ $programa->nombre }}</option>
