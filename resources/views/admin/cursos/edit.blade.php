@@ -7,6 +7,15 @@
                 <form action="{{ route('admin.cursos.update', $curso) }}" method="POST">
                     @csrf
                     @method('PUT')
+                    <style>
+                        div.form-group label{
+                            color: white;
+                            font-size: 15px;
+                        }
+                        div.form-group input{
+                            font-size: 14px;
+                        }
+                    </style>
                     <div class="card">
                         <div class="form-row">
                             <div class="form-group col-md-6">

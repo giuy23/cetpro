@@ -6,6 +6,16 @@
             <div class="card-body">
                 <form action="{{ route('admin.cetpros.index') }}" method="POST">
                     @csrf
+                    <style>
+                        
+                        div.form-group label{
+                            font-size: 15px;
+                            color: white;
+                        }
+                        div.form-group input{
+                            font-size: 14px;
+                        }
+                    </style>
                     <div class="card">
                         <div class="form-row">
                             <div class="form-group col-md-4">
@@ -102,7 +112,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="pag_web">Página web</label>
-                                <input type="text" class="form-control" id="pag_web" name="pag_web"
+                                <input type="text" class="form-control" id="pag_web" name="pag_web" required
                                     placeholder="Página web">
                             </div>
                         </div>
@@ -132,7 +142,7 @@
                     errores = true; // Se encontró un error
                 }
                 if (celular.length != 9) {
-                    alertError('El CELULAR debe tener 4 Dígitos', 'error');
+                    alertError('El CELULAR debe tener 9 Dígitos', 'error');
                     errores = true; // Se encontró un error
                 }
                 if (!errores) {

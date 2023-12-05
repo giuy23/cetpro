@@ -4,8 +4,18 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
+                <style>
+                    div.form-group label {
+                        color: white;
+                        font-size: 14px;
+                    }
+                    div.form-group input {
+                        font-size: 13px;
+                    }
+                </style>
                 <form action="{{ route('admin.alumnos.update', $alumno) }}" method="POST" id="formulario">
                     @csrf
+                    
                     @method('PUT')
                     <div class="card">
                         <div class="form-row">

@@ -44,7 +44,7 @@ class CetproController extends Controller
             'telefono'=> 'required',
             'celular'=> 'required',
             'direccion'=> 'required',
-            'pag_web',
+            'pag_web'=> 'required',
             'nivel_formativo'=> 'required',
         ]);
 
@@ -89,7 +89,7 @@ class CetproController extends Controller
             'telefono'=> 'required',
             'celular'=> 'required',
             'direccion'=> 'required',
-            'pag_web',
+            'pag_web'=> 'nullable',
             'nivel_formativo'=> 'required',
         ]);
 

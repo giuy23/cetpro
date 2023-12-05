@@ -6,6 +6,15 @@
             <div class="card-body">
                 <form action="{{ route('admin.marketings.update', $marketing) }}" method="POST">
                     @csrf
+                    <style>
+                        div.form-group label {
+                            color: white;
+                            font-size: 15px;
+                        }
+                        div.form-group input {
+                            font-size: 14px;
+                        }
+                    </style>
                     @method('PUT')
                     <div class="card">
                         <div class="form-row">
