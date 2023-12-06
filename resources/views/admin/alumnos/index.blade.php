@@ -9,6 +9,34 @@
     </script>
 @endif
 
+    <style>
+        /* Estilo básico del botón y las opciones */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+    </style>
 
     <div class="row">
         <div class="card">
@@ -72,6 +100,17 @@
                                                     data-alumno-id="{{ $alumno->id }}">Eliminar</button>
                                             </form>
                                         </td>
+                                        <td width="10px">
+                                            <div class="dropdown">
+                                                <button class="dropdown-button" onclick="toggleDropdown()">Documentos</button>
+                                                <div id="dropdownContent" class="dropdown-content">
+                                                <a href="{{ route('admin.alumnos.show', ['alumno' => $alumno, 'pdfType' => 'pdf']) }}" target="_blank">PDF</a>
+                                                <a href="{{ route('admin.alumnos.show', ['alumno' => $alumno, 'pdfType' => 'pdfx']) }}" target="_blank">Opción 2</a>
+                                                <a href="#">Opción 3</a>
+                                                <!-- Puedes agregar más opciones según sea necesario -->
+                                              </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -90,5 +129,38 @@
                 confirmDelete(form);
             });
         });
+
+
+
+
+        // 1 DESPLEGAR POR ID LOS ALUMNOS
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtén todos los botones y contenidos de los menús desplegables
+            var dropdownButtons = document.querySelectorAll(".dropdown-button");
+
+        // 1.1 Itera sobre cada botón
+        dropdownButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                // Encuentra el contenido del menú desplegable asociado a este botón
+                var dropdownContent = this.nextElementSibling;
+
+                // Alterna la visibilidad del contenido
+                dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+            });
+        });
+
+        // 1.2 Cierra el menú si se hace clic fuera de él
+        document.addEventListener("mouseup", function (e) {
+            dropdownButtons.forEach(function (button) {
+                var dropdownContent = button.nextElementSibling;
+
+                if (!button.contains(e.target) && !dropdownContent.contains(e.target)) {
+                    dropdownContent.style.display = "none";
+                }   
+            });
+        });
+    });
+
+
     </script>
 @endsection

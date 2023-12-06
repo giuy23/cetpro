@@ -33,10 +33,18 @@ class AlumnoController extends Controller
         return view('admin.alumnos.create', compact('cetpros', 'programas', 'marketings'));
     }
 
-    public function pdf(Request $request, string $alumno){
+        public function pdf(Request $request, string $alumno, $pdfType = 'pdf')
+    {   // $pdfType = 'pdf'
+        //Original
         $alumno2 = Alumno::find($alumno);
         dd($alumno2);
-        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno'))->setPaper('a4', 'landscape');
+        //$pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno'))->setPaper('a4', 'landscape');
+
+        //Motrar otro pdf
+        $view = ($pdfType == 'pdfx') ? 'admin.alumnos.pdfx' : 'admin.alumnos.pdf';
+        $pdf = Pdf::loadView($view, compact('alumno2'))->setPaper('a4', 'landscape');
+        
+        
         return $pdf->stream();
         // $alumnos = Alumno::all();
         // $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumnos'))->setPaper('a4', 'landscape');
@@ -98,13 +106,18 @@ class AlumnoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alumno $alumno)
-    {
+    public function show(Alumno $alumno, $pdfType = 'pdf') // $pdfType = 'pdf'
+    {   
+        //Original
         $programa = Programa::find($alumno->programa_estudio_id);
-
         $cetpro = Cetpro::find($alumno->cetpro_id);
         $cursos = $programa->cursos;
-        $pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno','cetpro', 'programa', 'cursos'))->setPaper('a4', 'landscape');
+        //$pdf = Pdf::loadView('admin.alumnos.pdf', compact('alumno','cetpro', 'programa', 'cursos'))->setPaper('a4', 'landscape');
+        
+        //Mostrar otro pdf
+        $view = ($pdfType == 'pdfx') ? 'admin.alumnos.pdfx' : 'admin.alumnos.pdf';
+        $pdf = Pdf::loadView($view, compact('alumno', 'cetpro', 'programa', 'cursos'))->setPaper('a4', 'landscape');
+
         return $pdf->stream();
     }
 

@@ -57,6 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
+//RUTA PARA MOSTRAR OTRO PDF
+Route::get('/generar-pdf/{alumno}/{pdfType?}', [AlumnoController::class, 'show'])->name('admin.alumnos');
+
 //RUTA ALUMNOS
 // Route::resource('alumnos', AlumnoController::class)->except('show')->names('admin.alumnos');
 Route::group(['middleware' => ['auth']], function () {
