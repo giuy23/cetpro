@@ -132,7 +132,7 @@
                     errores = true; // Se encontró un error
                 }
                 if (celular.length != 9) {
-                    alertError('El CELULAR debe tener 9 Dígitos', 'error');
+                    alertError('El CELULAR debe tener 9   Dígitos', 'error');
                     errores = true; // Se encontró un error
                 }
                 if (!errores) {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CetproController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\DetalleMatriculaController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\ProgramaController;
 use Illuminate\Support\Facades\Route;
@@ -93,6 +94,13 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth']], function () {
     // RUTA CETPRO
     Route::resource('programas', ProgramaController::class)->except('show')->names('admin.programas');
+});
+
+//RUTA matriculas
+// Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA matriculas
+    Route::resource('detallematricula', DetalleMatriculaController::class)->except('show')->names('admin.matricula');
 });
 
 
