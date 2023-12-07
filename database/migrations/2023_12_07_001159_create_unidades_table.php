@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('unidades', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('creditos');
+            $table->string('horas');
+            $table->string('condicion');
             $table->timestamps();
         });
     }
