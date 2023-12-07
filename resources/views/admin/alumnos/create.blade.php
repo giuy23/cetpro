@@ -276,6 +276,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
+<<<<<<< HEAD
                                 <label for="anio_academi" style= "font-size: 14px;
                                 color: white;">Año academico</label>
                                 <input type="number" class="form-control" id="anio_academi" name="anio_academi" style="font-size: 13px"
@@ -285,6 +286,10 @@
                                 <label for="programa_estudio_id" style= "font-size: 14px;
                                 color: white;">Programa de estudio</label>
                                 <select id="programa_estudio_id" name="programa_estudio_id" style="font-size: 13px" required
+=======
+                                <label for="programa_estudio_id">PROGRAMA</label>
+                                <select id="programa_estudio_id" name="programa_estudio_id" required
+>>>>>>> alejandro
                                     class="form-control">
                                     @foreach ($programas as $programa)
                                         <option value="{{ $programa->id }}" class="text-muted">{{ $programa->nombre }}
@@ -292,6 +297,48 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group col-md-4">
+                                <label for="cetpro_id">MODULO</label>
+                                <select id="cetpro_id" name="cetpro_id" required class="form-control">
+                                    @foreach ($cetpros as $cetpro)
+                                        <option value="{{ $cetpro->id }}" class="text-muted">{{ $cetpro->name_cetpro }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="cetpro_id">UNIDADES</label>
+                                <select id="cetpro_id" name="cetpro_id" required class="form-control">
+                                    @foreach ($cetpros as $cetpro)
+                                        <option value="{{ $cetpro->id }}" class="text-muted">{{ $cetpro->name_cetpro }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="cetpro_id">COMPETENCIAS</label>
+                                <select id="cetpro_id" name="cetpro_id" required class="form-control">
+                                    @foreach ($cetpros as $cetpro)
+                                        <option value="{{ $cetpro->id }}" class="text-muted">{{ $cetpro->name_cetpro }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="cetpro_id">CAPACIDADES</label>
+                                <select id="cetpro_id" name="cetpro_id" required class="form-control">
+                                    @foreach ($cetpros as $cetpro)
+                                        <option value="{{ $cetpro->id }}" class="text-muted">{{ $cetpro->name_cetpro }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="anio_academi">Año academico</label>
+                                <input type="number" class="form-control" id="anio_academi" name="anio_academi"
+                                    required placeholder="Año academico">
+                            </div>
+                            
                         </div>
 
                         <div class="form-row">
