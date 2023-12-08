@@ -107,7 +107,13 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 //RUTA MODULOS
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA matriculas  
+    Route::resource('modulo', ModuloController::class)->except('show')->names('admin.modulos');
+});
+
 
 //RUTA UNIDADES
+
 
 

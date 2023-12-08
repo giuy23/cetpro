@@ -28,6 +28,12 @@
                 </a>
             </li>
             
+            <li @if ($pageSlug == 'modulos') class="active " @endif>
+                <a href="{{ route('admin.modulos.index') }}">
+                    <i class="tim-icons icon-single-02"></i>
+                    <p>{{ __('Modulos') }}</p>
+                </a>
+            </li>
 
 
 

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'cetpros'])
+@extends('layouts.app', ['pageSlug' => 'modulos'])
 
 @section('content')
 
@@ -13,14 +13,14 @@
         <div class="card">
             <div class="d-flex justify-content-between">
                 <h4 class="d-flex align-items-center ml-4">Cetpros</h4>
-                <a href="{{ route('admin.cetpros.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
+                <a href="{{ route('admin.modulos.create') }}"><button class="btn btn-info animation-on-hover d-flex mr-4"
                         type="button">Crear </button></a>
             </div>
         </div>
         <div class="col-md-12">
             <div class="card ">
                 <div class="card-header">
-                    <h4 class="card-title"> Lista de CEPTROS</h4>
+                    <h4 class="card-title"> Lista de Modulos</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -36,27 +36,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cetpros as $cetpro)
+                                @foreach ($modulos as $modulo)
                                     <tr>
-                                        <td>{{ $cetpro->name_cetpro}}</td>
-                                        <td>{{ $cetpro->tipo_gestion}}</td>
-                                        <td>{{ $cetpro->resol_programs}}</td>
-                                        <td>{{ $cetpro->lugar}}</td>
-                                        <td>{{ $cetpro->distrito}}</td>
-                                        <td>{{ $cetpro->provincia}}</td>
+                                        <td>{{ $modulo->nom_modulo}}</td>
+                                
                                         <td width="10px">
                                                 <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('admin.cetpros.edit', $cetpro) }}">Editar</a>
+                                                    href="{{ route('admin.modulos.edit', $modulo) }}">Editar</a>
                                         </td>
                                         <td width="10px">
-                                                <form action="{{ route('admin.cetpros.destroy', $cetpro) }}"
+                                                <form action="{{ route('admin.modulos.destroy', $modulo) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('delete')
 
                                                     {{-- <button type="submit" class="btn btn-danger btn-sm">Eliminar</button> --}}
                                                     <button type="button" class="btn btn-danger btn-sm btn-delete"
-                                                    data-alumno-id="{{ $cetpro->id }}">Eliminar</button>
+                                                    data-alumno-id="{{ $modulo->id }}">Eliminar</button>
                                                 </form>
                                         </td>
                                     </tr>
