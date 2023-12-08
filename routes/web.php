@@ -106,4 +106,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('detallematricula', DetalleMatriculaController::class)->except('show')->names('admin.matricula');
 });
 
+//RUTA MODULOS
+
+//RUTA UNIDADES
+
 
