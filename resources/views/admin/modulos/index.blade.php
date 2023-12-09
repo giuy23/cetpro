@@ -59,5 +59,14 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('admin') }}/alerts/alert-error.js"></script>
 
+<script>
+    document.querySelectorAll('.btn-delete').forEach((button) => {
+            button.addEventListener('click', function() {
+                const form = this.closest('form');
+                confirmDelete(form);
+            });
+        });
+</script>
 @endsection

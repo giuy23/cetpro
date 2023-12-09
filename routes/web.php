@@ -99,7 +99,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('programas', ProgramaController::class)->except('show')->names('admin.programas');
 });
 
-//RUTA matriculas
+//RUTA matriculas 
 // Route::resource('cetpros', CetproController::class)->except('show')->names('admin.cetpros');
 Route::group(['middleware' => ['auth']], function () {
     // RUTA matriculas
@@ -109,11 +109,24 @@ Route::group(['middleware' => ['auth']], function () {
 //RUTA MODULOS
 Route::group(['middleware' => ['auth']], function () {
     // RUTA matriculas  
-    Route::resource('modulo', ModuloController::class)->except('show')->names('admin.modulos');
+    Route::resource('modulos', ModuloController::class)->except('show')->names('admin.modulos');
 });
 
 
 //RUTA UNIDADES
+Route::group(['middleware' => ['auth']], function () {
+    // RUTA matriculas  
+    // ESTAS RUTAS FALTAN MEJORAR POR UN ERRO
+    // Missing required parameter for [Route: admin.unidades.update] [URI: unidades/{unidade}] [Missing parameter: unidade].
+    Route::get('admin/unidades', 'UnidadesController@index')->name('admin.unidades.index');
+    Route::get('admin/unidades/create', 'UnidadesController@create')->name('admin.unidades.create');
+    Route::post('admin/unidades', 'UnidadesController@store')->name('admin.unidades.store');
+    Route::get('admin/unidades/{unidad}/edit', 'UnidadesController@edit')->name('admin.unidades.edit');
+    Route::put('admin/unidades/{unidad}', 'UnidadesController@update')->name('admin.unidades.update');
+    Route::delete('admin/unidades/{unidad}', 'UnidadesController@destroy')->name('admin.unidades.destroy');
+
+});
+
 
 
 

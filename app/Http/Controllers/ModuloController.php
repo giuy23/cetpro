@@ -27,7 +27,7 @@ class ModuloController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom:modulo' => 'required',
+            'nom_modulo' => 'required',
         ]);
 
         $modulo = Modulo::create($request->all());
@@ -71,6 +71,7 @@ class ModuloController extends Controller
 
     public function destroy(Modulo $modulo)
     {
-        return redirect()->route('admin.modulos.index', $cetpro)->with('info', 'El registro se eliminó con éxito');
+        $modulo->delete();
+        return redirect()->route('admin.modulos.index', $modulo)->with('info', 'El registro se eliminó con éxito');
     }
 }

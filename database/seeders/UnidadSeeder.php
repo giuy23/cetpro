@@ -21,4 +21,10 @@ class UnidadSeeder extends Seeder
             'modulo_id' => 1,
         ]);
     }
+
+    // En el modelo Unidads
+    public function modulo()
+    {
+        return $this->belongsTo(Modulo::class);
+    }
 }

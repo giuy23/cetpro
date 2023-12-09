@@ -9,4 +9,7 @@ class Modulo extends Model
 {
     use HasFactory;
     protected $table = 'modulos';
+    protected $fillable = [
+        'nom_modulo',
+    ];
 }

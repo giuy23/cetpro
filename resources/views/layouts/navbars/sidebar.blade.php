@@ -35,6 +35,12 @@
                 </a>
             </li>
 
+            <li @if ($pageSlug == 'unidades') class="active " @endif>
+                <a href="{{ route('admin.unidades.index') }}">
+                    <i class="tim-icons icon-single-02"></i>
+                    <p>{{ __('Unidades') }}</p>
+                </a>
+            </li>
 
 
 
