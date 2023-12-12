@@ -41,9 +41,6 @@
                                 <input type="text" class="form-control" id="condicion" name="condicion" required value="{{$unidad->condicion}}" placeholder="Condicion">
                             </div>  
                         </div>
-                        <select name="modulo_id">
-                            <!-- Opciones de módulos aquí -->
-                        </select>
                     </div>
 
                     <div class="form-row">

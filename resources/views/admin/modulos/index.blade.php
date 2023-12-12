@@ -28,13 +28,16 @@
                         <thead class=" text-primary">
                             <tr>
                                 <th>Nombre</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Finalización</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($modulos as $modulo)
                                 <tr>
-                                    <td>{{ $modulo->nom_modulo}}</td>
-
+                                    <td>{{ $modulo->nom_modulo }}</td>
+                                    <td>{{ $modulo->fec_inicio }}</td>
+                                    <td>{{ $modulo->fec_final }}</td>
                                     <td width="10px">
                                             <a class="btn btn-primary btn-sm"
                                                 href="{{ route('admin.modulos.edit', $modulo) }}">Editar</a>

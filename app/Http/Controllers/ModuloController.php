@@ -18,6 +18,7 @@ class ModuloController extends Controller
 
     public function create()
     {
+        $modulos = Modulo::all();
         return view('admin.modulos.create');
     }
 
@@ -28,6 +29,8 @@ class ModuloController extends Controller
     {
         $request->validate([
             'nom_modulo' => 'required',
+            'fec_inicio' => 'nullable',
+            'fec_final' => 'nullable',
         ]);
 
         $modulo = Modulo::create($request->all());
@@ -59,6 +62,8 @@ class ModuloController extends Controller
     {
         $request->validate([
             'nom_modulo' => 'required',
+            'fec_inicio' => 'nullable',
+            'fec_final' => 'nullable',
         ]);
 
         $modulo->update($request->all());

@@ -27,7 +27,11 @@
                     <table class="table tablesorter " id="">
                         <thead class=" text-primary">
                             <tr>
-                                <th>Nombre</th>
+                                <th>Nombre de Unidad</th>
+                                <th>Créditos</th>
+                                <th>Horas</th>
+                                <th>Condición</th>
+                                <th>Modulo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,6 +41,7 @@
                                     <td>{{ $unidad->creditos}}</td>
                                     <td>{{ $unidad->horas}}</td>
                                     <td>{{ $unidad->condicion}}</td>
+                                    <td>{{ $unidad->modulo ? $unidad->modulo->nom_modulo : 'No asociado' }}</td>
 
 
                                     <td width="10px">

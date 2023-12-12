@@ -17,8 +17,13 @@ class Unidad extends Model
         'modulo_id',
     ];
 
+    protected $cast = [
+        'horas' => 'integer',
+        'creditos' => 'integer'
+    ];
+
     public function modulo()
     {
-        return $this->belongsTo(Modulo::class, 'modulo_id');
+        return $this->belongsTo(Modulo::class);
     }
 }

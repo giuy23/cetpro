@@ -10,7 +10,7 @@ class UnidadesController extends Controller
 {
     public function index()
     {
-        $unidades = Unidad::all();
+        $unidades = Unidad::with('modulo')->get();
         return view('admin.unidades.index', compact('unidades'));
     }
 
@@ -20,7 +20,8 @@ class UnidadesController extends Controller
     public function create()
     {
         $unidades = Unidad::all();
-        return view('admin.unidades.create');
+        $modulos = Modulo::all();
+        return view('admin.unidades.create', compact('modulos'));
     }
 
      /*
@@ -36,7 +37,8 @@ class UnidadesController extends Controller
             'modulo_id' => 'required',
         ]);
 
-        $unidad = Unidad::create($request->all());
+        $unidad = new Unidad($request->all());
+        $unidad->save();
 
         return redirect()->route('admin.unidades.index', $unidad)->with('info', 'Se registro con exito');
     }

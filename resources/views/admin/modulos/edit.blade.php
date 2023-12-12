@@ -21,7 +21,16 @@
                             <div class="form-group col-md-6">
                                 <label for="nom_modulo">Nombre</label>
                                 <input type="text" class="form-control" id="nom_modulo" name="nom_modulo" required value="{{$modulo->nom_modulo}}" placeholder="Nombre">
-
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fec_inicio">Fecha de Inicio</label>
+                                <input type="date" class="form-control" id="fec_inicio" name="fec_inicio" required value="{{$modulo->fec_inicio}}" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fec_final">Fecha de Finalización</label>
+                                <input type="date" class="form-control" id="fec_final" name="fec_final" required value="{{$modulo->fec_final}}" placeholder="">
+                            </div>
+                        </div>    
                     </div>
 
                     <button type="submit" class="btn btn-primary">Editar Registro</button>

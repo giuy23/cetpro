@@ -22,8 +22,16 @@
                                 <label for="nom_modulo">Nombre</label>
                                 <input type="text" class="form-control" id="nom_modulo" name="nom_modulo" required placeholder="Nombre">
                             </div>
-
-                        
+                            <div class="form-group col-md-4">
+                                <label for="fec_inicio">Fecha de Inicio</label>
+                                <input type="date" class="form-control" id="fec_inicio" name="fec_inicio" required placeholder="">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="fec_final">Fecha de Finalización</label>
+                                <input type="date" class="form-control" id="fec_final" name="fec_final" required placeholder="">
+                            </div>
+                        </div>
+                    </div>
 
                     <button type="submit" class="btn btn-primary" id="btn-submit">Crear Registro</button>
                 </form>

@@ -11,5 +11,7 @@ class Modulo extends Model
     protected $table = 'modulos';
     protected $fillable = [
         'nom_modulo',
+        'fec_inicio',
+        'fec_final',
     ];
 }

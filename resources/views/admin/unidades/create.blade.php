@@ -19,20 +19,20 @@
                     <div class="card">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre del Módulo</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Nombre">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="credito">Creditos</label>
-                                <input type="text" class="form-control" id="creditos" name="creditos" required placeholder="Creditos">
+                                <label for="credito">Créditos</label>
+                                <input type="number" class="form-control" id="creditos" name="creditos" required placeholder="Creditos">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="horas">Horas</label>
-                                <input type="text" class="form-control" id="horas" name="horas" required placeholder="Horas">
+                                <input type="number" class="form-control" id="horas" name="horas" required placeholder="Horas">
                             </div>
                         </div>
                         <div class="form-row">
@@ -41,9 +41,17 @@
                                 <input type="text" class="form-control" id="condicion" name="condicion" required placeholder="Condición">
                             </div>
                         </div>
-                        <select name="modulo_id">
-                            <!-- Opciones de módulos aquí -->
-                        </select>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="modulo_id" style= "font-size: 14px;
+                                color: white;">Modulo</label>
+                                <select id="modulo_id" name="modulo_id" style="font-size: 13px" required class="form-control">
+                                    <option value="" disabled selected>Seleccione un módulo</option>
+                                    @foreach ($modulos as $modulo)
+                                        <option value="{{ $modulo->id }}" class="text-muted">{{ $modulo->nom_modulo }}</option>
+                                    @endforeach
+                                </select>   
+                            </div>
                     </div>                        
 
                     <button type="submit" class="btn btn-primary" id="btn-submit">Crear Registro</button>
